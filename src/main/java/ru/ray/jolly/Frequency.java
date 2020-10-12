@@ -52,13 +52,14 @@ public class Frequency {
     }
 
     private static void showRZ(int[] mas2){
-        int[] counters =  new int[2];
+        double[] counters =  new double[2];
         frequency = 1/singleTime;
         int i = 0;
         while (i < mas2.length){
             if (i < mas2.length-2 && ((mas2[i] == 1 && mas2[i+1] == 0 && mas2[i+2] == 1) ||
                     (mas2[i] == 0 && mas2[i+1] == 1 && mas2[i+2] == 0))) {
                 counters[0]++;
+                counters[1]+=0.5;
                 i= i+3;
             }else{
                 counters[1]++;
