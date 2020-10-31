@@ -6,14 +6,11 @@ import static ru.ray.jolly.Coding.get2;
 public class Main {
     public static void main(String[] args) {
         //mode = 1 - NRZ, 2 - RZ, 3 - AMI, 4 - NRZI, 5 - MLT-3, 6 - M2, 7 - Диф. M2, 8 - PAM-5
-        int mode = 8,
+        int mode = 7,
                 //log = 1 - цифровое кодирование, 2 - избыточное еодирование, 3 - скремблирование
-                log = 3;
+                log = 1;
         //start = <Искодное сообщение>
         String start = "Камышников В.А.";
-
-
-
         StringBuilder finish16 = new StringBuilder();
         int[] finish2;
         for (char let: start.toCharArray()) {

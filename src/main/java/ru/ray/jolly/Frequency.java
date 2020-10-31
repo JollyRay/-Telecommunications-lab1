@@ -71,7 +71,7 @@ public class Frequency {
     }
 
     private static void showAMI(int[] mas2){
-        int i = 0, k = mas2[0], counter = 0;
+        int i = 0, counter = 0;
         ArrayList<Integer> counterList = new ArrayList<>();
         counterList.add(0);
         while (i < mas2.length){
@@ -182,16 +182,13 @@ public class Frequency {
 
     private static void showM2(int[] mas2){
         frequency = 1/singleTime;
-        int index = 0;
         int[] counters = new int[2];
-        while (index < mas2.length){
-            if (index < mas2.length-1 && mas2[index] != mas2[index+1]){
-                counters[1]+=1;
-                index+=2;
-            } else {
-                counters[0]+=1;
-                index+=1;
-            }
+        counters[0] = 2;
+        for (int i = 0; i < mas2.length-1; i++){
+            if (mas2[i] != mas2[i+1])
+                counters[1]++;
+            else
+                counters[0] = counters[0] + 2;
         }
         System.out.println("(" + counters[0] + "f_верх + " + counters[1] + "f_ниж)/" + (counters[0]+counters[1]) +
                 "=" + ((counters[0]*frequency + counters[1]*frequency/2)/(counters[0]+counters[1])));
@@ -199,16 +196,12 @@ public class Frequency {
 
     private static void showDifM2(int[] mas2){
         frequency = 1/singleTime;
-        int index = 0;
         int[] counters = new int[2];
-        while (index < mas2.length){
-            if (index < mas2.length-1 && mas2[index+1] == 1){
-                counters[1]+=1;
-                index+=2;
-            } else {
-                counters[0]+=1;
-                index+=1;
-            }
+        for (int i = 0; i<mas2.length-1; i++){
+            if (mas2[i+1] == 1)
+                counters[1]++;
+            else
+                counters[0] = counters[0] + 2;
         }
         System.out.println("(" + counters[0] + "f_верх + " + counters[1] + "f_ниж)/" + (counters[0]+counters[1]) +
                 "=" + ((counters[0]*frequency + counters[1]*frequency/2)/(counters[0]+counters[1])));
